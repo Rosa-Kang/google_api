@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Card from './Card';
 import axios from 'axios';
 import './style.css'
@@ -6,6 +6,12 @@ import './style.css'
 const Main = () => {
     const [search, setSearch] = useState('');
     const [data, setData] = useState([]);
+
+    useEffect(() => {
+        axios.get(`https://www.googleapis.com/books/v1/volumes?q=literature:keyes&key=AIzaSyDO8kDr88oSR_M__bK-W-JEqkod0q2DULw`)
+            .then(res => setData(res.data.items))
+        .catch(err=> console.log(err))
+    },[])
 
     const searchBook = () => {
             axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyDO8kDr88oSR_M__bK-W-JEqkod0q2DULw&maxResult=40`)
