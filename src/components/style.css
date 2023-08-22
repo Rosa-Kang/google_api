@@ -153,10 +153,12 @@ html{
     justify-content: center;
 }
 .overlay-inner{
+    display: flex;
+    flex-direction: column;
     background: white;
     width: 700px;
-    height: 550px;
-    padding: 1.5rem;
+    height: 650px;
+    padding: 1.5rem 2rem;
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
@@ -170,17 +172,39 @@ html{
     border: none;
     font-size: 17px;
     background-color: transparent;
+    transition: 0.3s all;
 }
+
+.overlay-inner .close:hover,
+.overlay-inner .more-button button:hover{
+    opacity: 0.7;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
 .overlay-inner .inner-box{
     margin-top: 30px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+    @media only screen and (min-width:568px) {
+        flex-direction: row;
+    }
 }
 .overlay-inner .inner-box img{
     margin-right: 20px;
     width: 150px;
     height: 200px;
 }
+
+.overlay-inner .inner-box .info{
+    @media only screen and (max-width:568px) {
+        text-align: center;
+    }
+}
+
 .overlay-inner .inner-box h3{
     margin-top: 10px;
     color: green;
@@ -202,6 +226,7 @@ html{
     margin-top: 2rem;
     text-align: justify;
     font-size: 13px;
+    overflow-y: auto;
 }
 
 

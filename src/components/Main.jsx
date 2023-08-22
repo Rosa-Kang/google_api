@@ -7,7 +7,7 @@ const Main = () => {
     const [search, setSearch] = useState('');
     const [data, setData] = useState([]);
 
-    const searchBook = (e) => {
+    const searchBook = () => {
             axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}&key=AIzaSyDO8kDr88oSR_M__bK-W-JEqkod0q2DULw&maxResult=40`)
                 .then(res => setData(res.data.items))
             .catch(err=> console.log(err))
